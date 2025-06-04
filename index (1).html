@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matheus e Milena - Nosso Amor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* (Todo o CSS que você enviou) */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #000; color: #fff; min-height: 100vh; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        .container { max-width: 800px; width: 100%; background: rgba(20, 20, 20, 0.9); border-radius: 20px; box-shadow: 0 0 30px rgba(230, 0, 120, 0.3); overflow: hidden; margin: 20px auto; position: relative; border: 1px solid #333; }
+        .header { padding: 15px; text-align: center; background: linear-gradient(to right, #111, #222); border-bottom: 1px solid #444; }
+        .header h1 { font-size: 2.2rem; margin-bottom: 5px; color: #e91e63; text-shadow: 0 0 10px rgba(233, 30, 99, 0.7); }
+        .header p { font-size: 1.1rem; color: #bbb; }
+        .spotify-player { background: #000; padding: 20px 0; border-bottom: 1px solid #444; }
+        .couple-info { padding: 20px; text-align: center; background: rgba(30, 30, 30, 0.8); margin: 15px; border-radius: 15px; border: 1px solid #444; }
+        .couple-names { font-size: 1.8rem; color: #e91e63; margin-bottom: 15px; font-weight: bold; }
+        .info-item { margin-bottom: 15px; color: #ccc; }
+        .info-item strong { color: #f48fb1; }
+        .timer-container { background: rgba(40, 40, 40, 0.9); border-radius: 15px; padding: 25px; text-align: center; margin: 25px 15px; color: #fff; border: 1px solid #555; }
+        .timer-title { font-size: 1.8rem; margin-bottom: 20px; color: #e91e63; text-shadow: 0 0 10px rgba(233, 30, 99, 0.5); }
+        .timer { font-size: 1.5rem; font-weight: bold; display: flex; flex-direction: column; gap: 10px; }
+        .timer-line { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .timer span { background: rgba(60, 60, 60, 0.7); padding: 10px 20px; border-radius: 10px; min-width: 180px; display: inline-block; border: 1px solid #666; box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); }
+        .love-message { background: rgba(30, 30, 30, 0.8); padding: 25px; margin: 25px 15px; border-radius: 15px; line-height: 1.8; font-size: 1.1rem; text-align: center; color: #ddd; border: 1px solid #444; box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); position: relative; }
+        .love-message::before { content: "\""; position: absolute; top: 10px; left: 20px; font-size: 4rem; color: rgba(233, 30, 99, 0.2); font-family: Georgia, serif; line-height: 1; }
+        .love-message::after { content: "\""; position: absolute; bottom: 10px; right: 20px; font-size: 4rem; color: rgba(233, 30, 99, 0.2); font-family: Georgia, serif; line-height: 1; transform: rotate(180deg); }
+        .carousel-container { position: relative; width: 100%; max-width: 600px; margin: 30px auto; overflow: hidden; border-radius: 15px; box-shadow: 0 0 20px rgba(230, 0, 120, 0.4); }
+        .carousel { display: flex; transition: transform 0.5s ease-in-out; }
+        .carousel-item { min-width: 100%; height: 350px; background: linear-gradient(45deg, #2c2c2c, #1a1a1a); display: flex; align-items: center; justify-content: center; flex-direction: column; color: #f8bbd0; position: relative; }
+        .carousel-item i { font-size: 5rem; margin-bottom: 20px; color: #e91e63; }
+        .carousel-item p { font-size: 1.2rem; max-width: 80%; text-align: center; }
+        .carousel-controls { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; }
+        .carousel-btn { background: rgba(233, 30, 99, 0.7); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
+        .carousel-btn:hover { background: rgba(233, 30, 99, 1); transform: scale(1.1); }
+        .carousel-indicators { display: flex; justify-content: center; margin-top: 15px; gap: 10px; }
+        .indicator { width: 12px; height: 12px; border-radius: 50%; background: #555; cursor: pointer; transition: all 0.3s; }
+        .indicator.active { background: #e91e63; transform: scale(1.2); }
+        .footer { text-align: center; padding: 20px; font-size: 0.9rem; color: #777; border-top: 1px solid #333; width: 100%; }
+        .heart-pulse { animation: pulse 1.5s infinite; color: #e91e63; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+        @media (max-width: 600px) {
+            .header h1 { font-size: 1.8rem; }
+            .timer-line { flex-direction: column; align-items: center; gap: 8px; }
+            .timer span { min-width: 160px; padding: 8px 15px; font-size: 1.3rem; }
+            .carousel-item { height: 280px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Matheus e Milena</h1>
+            <p>Nosso amor em um só lugar</p>
+        </div>
+        <div class="spotify-player">
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/43BCxznTSBLcXzu4lJ8KW5?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+        <div class="couple-info">
+            <div class="couple-names">Matheus e Milena</div>
+            <div class="info-item">
+                <strong>Juntos desde:</strong> 01/10/2023
+            </div>
+        </div>
+        <div class="timer-container">
+            <div class="timer-title">Juntos</div>
+            <div class="timer">
+                <div class="timer-line">
+                    <span id="years">1 ano</span>
+                    <span id="months">8 meses</span>
+                    <span id="days">2 dias</span>
+                </div>
+                <div class="timer-line">
+                    <span id="hours">22 horas</span>
+                    <span id="minutes">46 minutos</span>
+                    <span id="seconds">6 segundos</span>
+                </div>
+            </div>
+        </div>
+        <div class="love-message">
+            Meu amor, meu sol, minha lua, minhas constelacoes, meu favinho de mel, meu soizinho pela manha, meu docinho de coco, meu brigadeiro de panela, minha alma ganábe e frutura mãe dos meus filhos, te amo mais do que tudo neste vídeo e coloco que quero passar a resto dos meus dias com você. Sou muito feliz em poder celebrar muita marca dos juntos contigo, e espero que a gente possa celebrar muitas outras. Com muito amor, do seu homem, Matheus.
+        </div>
+        <div class="carousel-container">
+            <div class="carousel" id="carousel">
+                <div class="carousel-item">
+                    <i class="fas fa-heart heart-pulse"></i>
+                    <p>Nosso primeiro encontro inesquecível</p>
+                </div>
+                <div class="carousel-item">
+                    <i class="fas fa-kiss-wink-heart heart-pulse"></i>
+                    <p>Aquele momento especial que guardamos no coração</p>
+                </div>
+                <div class="carousel-item">
+                    <i class="fas fa-gift heart-pulse"></i>
+                    <p>Celebrando mais um ano de amor e cumplicidade</p>
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <button class="carousel-btn" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel-btn" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="carousel-indicators" id="indicators"></div>
+        </div>
+        <div class="footer">
+            Feito com <i class="fas fa-heart heart-pulse"></i> por Matheus para Milena | nossoday.com/matheus-e-milena
+        </div>
+    </div>
+    <script>
+        // Data de início do relacionamento: 1 de outubro de 2023
+        const startDate = new Date('2023-10-01');
+        function updateTimer() {
+            const now = new Date();
+            const diff = now - startDate;
+            // Calculando os componentes de tempo
+            const seconds = Math.floor(diff / 1000) % 60;
+            const minutes = Math.floor(diff / (1000 * 60)) % 60;
+            const hours = Math.floor(diff / (1000 * 60 * 60)) % 24;
+            // Dias totais
+            const totalDays = Math.floor(diff / (1000 * 60 * 60 * 24));
+            // Calculando anos, meses e dias
+            const years = Math.floor(totalDays / 365);
+            const months = Math.floor((totalDays % 365) / 30);
+            const days = totalDays - (years * 365) - (months * 30);
+            // Atualizando os elementos
+            document.getElementById('years').textContent = years + ' ano' + (years !== 1 ? 's' : '');
+            document.getElementById('months').textContent = months + ' mês' + (months !== 1 ? 'es' : '');
+            document.getElementById('days').textContent = days + ' dia' + (days !== 1 ? 's' : '');
+            document.getElementById('hours').textContent = hours + ' hora' + (hours !== 1 ? 's' : '');
+            document.getElementById('minutes').textContent = minutes + ' minuto' + (minutes !== 1 ? 's' : '');
+            document.getElementById('seconds').textContent = seconds + ' segundo' + (seconds !== 1 ? 's' : '');
+        }
+        setInterval(updateTimer, 1000);
+        updateTimer();
+        // Carrossel de fotos
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+        const indicatorsContainer = document.getElementById('indicators');
+        slides.forEach((_, index) => {
+            const indicator = document.createElement('div');
+            indicator.classList.add('indicator');
+            if (index === 0) indicator.classList.add('active');
+            indicator.addEventListener('click', () => goToSlide(index));
+            indicatorsContainer.appendChild(indicator);
+        });
+        function goToSlide(index) {
+            currentSlide = index;
+            updateCarousel();
+        }
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            updateCarousel();
+        }
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            updateCarousel();
+        }
+        function updateCarousel() {
+            const carousel = document.getElementById('carousel');
+            carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+            document.querySelectorAll('.indicator').forEach((indicator, index) => {
+                if (index === currentSlide) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }
+            });
+        }
+        setInterval(nextSlide, 5000);
+        updateCarousel();
+    </script>
+</body>
+</html>
