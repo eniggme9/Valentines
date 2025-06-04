@@ -665,21 +665,62 @@ Com muito amor, da sua metade da laranja, dos seus cachinhos favoritos, da sua p
         // Criar corações flutuantes
         function createHearts() {
             const heartsContainer = document.getElementById('hearts-container');
-            const heartCount = 30;
+            const heartsContainer2 = document.getElementById('hearts-container-2');
+            const heartCount = 40;
             
             for (let i = 0; i < heartCount; i++) {
+                // Primeira camada de corações
                 const heart = document.createElement('div');
                 heart.className = 'heart-particle';
                 heart.innerHTML = '❤️';
                 heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDuration = (Math.random() * 8 + 5) + 's';
+                heart.style.animationDuration = (Math.random() * 10 + 8) + 's';
                 heart.style.animationDelay = Math.random() * 5 + 's';
+                heart.style.fontSize = (Math.random() * 18 + 13.5) + 'px';
                 heartsContainer.appendChild(heart);
+                
+                // Segunda camada de corações (mais sutis)
+                if (i < 30) {
+                    const heart2 = document.createElement('div');
+                    heart2.className = 'heart-particle-2';
+                    heart2.innerHTML = '❤';
+                    heart2.style.left = Math.random() * 100 + 'vw';
+                    heart2.style.animation = `float-2 ${Math.random() * 15 + 10}s infinite linear`;
+                    heart2.style.animationDelay = Math.random() * 8 + 's';
+                    heartsContainer2.appendChild(heart2);
+                }
             }
         }
         
         // Inicializar corações
         createHearts();
+        
+        // Easter Egg functionality
+        const easterTrigger = document.getElementById('easterTrigger');
+        const easterPopup = document.getElementById('easterPopup');
+        const closePopup = document.getElementById('closePopup');
+        
+        // Abrir o popup ao clicar no coração
+        easterTrigger.addEventListener('click', () => {
+            easterPopup.classList.add('active');
+            // Pausar o carrossel quando o popup estiver aberto
+            swiper.autoplay.stop();
+        });
+        
+        // Fechar o popup
+        closePopup.addEventListener('click', () => {
+            easterPopup.classList.remove('active');
+            // Retomar o carrossel quando o popup for fechado
+            swiper.autoplay.start();
+        });
+        
+        // Fechar ao clicar fora do conteúdo
+        easterPopup.addEventListener('click', (e) => {
+            if (e.target === easterPopup) {
+                easterPopup.classList.remove('active');
+                swiper.autoplay.start();
+            }
+        });
     </script>
 </body>
 </html>
