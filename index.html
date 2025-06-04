@@ -310,8 +310,8 @@
             position: absolute;
             font-size: 1.2rem;
             opacity: 0;
-            color: #e91e63;
-            animation: float 8s infinite linear;
+            color: rgba(233, 30, 99, 0.3);
+            animation: float 15s infinite linear;
         }
         
         @keyframes float {
@@ -352,13 +352,13 @@
         
         .easter-content {
             background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
-            border-radius: 18px; /* Reduzido em 10% */
-            padding: 36px; /* Reduzido em 10% */
-            max-width: 540px; /* Reduzido em 10% */
+            border-radius: 15px; //
+            padding: 30px;
+            max-width: 768px; /
             width: 90%;
             text-align: center;
             border: 2px solid #e91e63;
-            box-shadow: 0 0 36px rgba(233, 30, 99, 0.6); /* Reduzido em 10% */
+            box-shadow: 0 0 30px rgba(233, 30, 99, 0.6);
             position: relative;
             transform: scale(0.8);
             transition: transform 0.5s ease;
@@ -449,52 +449,6 @@
         </div>
     </div>
         
-        @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2rem;
-            }
-            
-            .together-section {
-                padding: 20px 15px;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .timer-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .timer-box:nth-child(3) {
-                grid-column: span 2;
-                max-width: 50%;
-                margin: 0 auto;
-            }
-            
-            .swiper {
-                height: 300px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .header h1 {
-                font-size: 1.7rem;
-            }
-            
-            .timer-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .timer-box:nth-child(3) {
-                grid-column: span 1;
-                max-width: 100%;
-            }
-            
-            .swiper {
-                height: 250px;
-            }
-        }
     </style>
 </head>
 <body>
