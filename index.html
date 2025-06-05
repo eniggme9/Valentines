@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -21,6 +22,8 @@
             flex-direction: column;
             align-items: center;
             overflow-x: hidden;
+            background-image: radial-gradient(circle at 20% 30%, rgba(233, 30, 99, 0.08) 0%, transparent 40%),
+                              radial-gradient(circle at 80% 70%, rgba(233, 30, 99, 0.08) 0%, transparent 40%);
         }
         
         .container {
@@ -48,7 +51,7 @@
             font-size: 2.5rem;
             margin-bottom: 5px;
             color: #e91e63;
-            text-shadow: 0 0 15px rgba(233, 30, 99, 0.8);
+            text-shadow: 0 0 10px rgba(233, 30, 99, 0.5);
             letter-spacing: 1px;
         }
         
@@ -79,7 +82,7 @@
             font-size: 2rem;
             color: #e91e63;
             margin-bottom: 25px;
-            text-shadow: 0 0 10px rgba(233, 30, 99, 0.6);
+            text-shadow: 0 0 8px rgba(233, 30, 99, 0.4);
             position: relative;
             display: inline-block;
         }
@@ -147,7 +150,7 @@
             border-radius: 15px;
             line-height: 1.8;
             font-size: 1.1rem;
-            text-align: center;
+            text-align: justify;
             color: #ddd;
             border: 1px solid #444;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
@@ -192,7 +195,7 @@
             font-size: 1.8rem;
             color: #e91e63;
             margin-bottom: 20px;
-            text-shadow: 0 0 10px rgba(233, 30, 99, 0.6);
+            text-shadow: 0 0 8px rgba(233, 30, 99, 0.4);
         }
         
         .swiper {
@@ -251,6 +254,12 @@
             height: 50px;
             border-radius: 50%;
             backdrop-filter: blur(5px);
+            transition: all 0.3s;
+        }
+        
+        .swiper-button-next:hover, .swiper-button-prev:hover {
+            transform: scale(1.2);
+            background: rgba(233, 30, 99, 0.2);
         }
         
         .swiper-pagination-bullet {
@@ -262,6 +271,7 @@
             background: #e91e63 !important;
             opacity: 1 !important;
             transform: scale(1.2);
+            box-shadow: 0 0 8px rgba(233, 30, 99, 0.5);
         }
         
         .footer {
@@ -281,18 +291,27 @@
         }
         
         .footer a:hover {
-            text-shadow: 0 0 10px rgba(233, 30, 99, 0.8);
+            text-shadow: 0 0 8px rgba(233, 30, 99, 0.5);
         }
         
         .heart-pulse {
             animation: pulse 1.5s infinite;
             color: #e91e63;
             display: inline-block;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-shadow: 0 0 8px rgba(233, 30, 99, 0.3);
+        }
+        
+        .heart-pulse:hover {
+            animation: pulse 0.8s infinite;
+            transform: scale(1.3);
+            text-shadow: 0 0 15px rgba(233, 30, 99, 0.5);
         }
         
         @keyframes pulse {
             0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+            50% { transform: scale(1.2); }
             100% { transform: scale(1); }
         }
         
@@ -310,25 +329,23 @@
             position: absolute;
             font-size: 1.2rem;
             opacity: 0;
-            color: rgba(233, 30, 99, 0.3);
-            animation: float 15s infinite linear;
+            color: #e91e63;
+            animation: float 8s infinite linear;
+            filter: drop-shadow(0 0 5px rgba(233, 30, 99, 0.3));
         }
         
         @keyframes float {
             0% {
-                transform: translateY(100vh) rotate(0deg) translateX(0);
-                opacity: 0.6;
-            }
-            50% {
-                transform: translateY(50vh) rotate(180deg) translateX(100px);
+                transform: translateY(100vh) rotate(0deg);
                 opacity: 0.8;
             }
             100% {
-                transform: translateY(-100px) rotate(360deg) translateX(200px);
+                transform: translateY(-100px) rotate(360deg);
                 opacity: 0;
             }
         }
         
+        /* Easter Egg Popup */
         .easter-popup {
             position: fixed;
             top: 0;
@@ -352,13 +369,13 @@
         
         .easter-content {
             background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
-            border-radius: 15px; //
-            padding: 30px;
-            max-width: 768px; /
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
             width: 90%;
             text-align: center;
             border: 2px solid #e91e63;
-            box-shadow: 0 0 30px rgba(233, 30, 99, 0.6);
+            box-shadow: 0 0 30px rgba(233, 30, 99, 0.4);
             position: relative;
             transform: scale(0.8);
             transition: transform 0.5s ease;
@@ -370,26 +387,26 @@
         
         .easter-content h2 {
             color: #e91e63;
-            font-size: 2.25rem; /* Reduzido em 10% */
-            margin-bottom: 18px; /* Reduzido em 10% */
-            text-shadow: 0 0 10px rgba(233, 30, 99, 0.4);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(233, 30, 99, 0.3);
         }
         
         .easter-content p {
-            font-size: 1.17rem; /* Reduzido em 10% */
+            font-size: 1.3rem;
             line-height: 1.8;
-            margin-bottom: 27px; /* Reduzido em 10% */
+            margin-bottom: 30px;
             color: #f0f0f0;
         }
         
         .secret-message {
             background: rgba(233, 30, 99, 0.1);
-            padding: 18px; /* Reduzido em 10% */
-            border-radius: 13.5px; /* Reduzido em 10% */
-            margin: 18px 0; /* Reduzido em 10% */
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
             border-left: 4px solid #e91e63;
             font-style: italic;
-            font-size: 1.26rem; /* Reduzido em 10% */
+            font-size: 1.4rem;
             color: #ffb6c1;
         }
         
@@ -397,23 +414,23 @@
             background: linear-gradient(to right, #e91e63, #c2185b);
             color: white;
             border: none;
-            padding: 10.8px 27px; /* Reduzido em 10% */
-            font-size: 1.08rem; /* Reduzido em 10% */
+            padding: 12px 30px;
+            font-size: 1.2rem;
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4.5px 13.5px rgba(233, 30, 99, 0.3); /* Reduzido em 10% */
+            box-shadow: 0 5px 15px rgba(233, 30, 99, 0.3);
         }
         
         .close-btn:hover {
-            transform: translateY(-2.7px); /* Reduzido em 10% */
-            box-shadow: 0 7.2px 18px rgba(233, 30, 99, 0.5); /* Reduzido em 10% */
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(233, 30, 99, 0.5);
         }
         
         .easter-heart {
-            font-size: 2.7rem; /* Reduzido em 10% */
+            font-size: 3rem;
             color: #e91e63;
-            margin: 18px 0; /* Reduzido em 10% */
+            margin: 20px 0;
             animation: heartbeat 1.2s infinite;
         }
         
@@ -424,35 +441,75 @@
             75% { transform: scale(1.3); }
             100% { transform: scale(1); }
         }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .together-section {
+                padding: 20px 15px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .timer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .timer-box:nth-child(3) {
+                grid-column: span 2;
+                max-width: 50%;
+                margin: 0 auto;
+            }
+            
+            .swiper {
+                height: 300px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.7rem;
+            }
+            
+            .timer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .timer-box:nth-child(3) {
+                grid-column: span 1;
+                max-width: 100%;
+            }
+            
+            .swiper {
+                height: 250px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="floating-hearts" id="hearts-container"></div>
-    <div class="floating-hearts-2" id="hearts-container-2"></div>
     
-    <!-- Easter Egg Popup com sua mensagem personalizada -->
+    <!-- Easter Egg Popup -->
     <div class="easter-popup" id="easterPopup">
         <div class="easter-content">
             <div class="easter-heart">❤️</div>
             <h2>Para minha musa inspiradora</h2>
-            <p>Parabéns, você encontrou o egg do nosso site!</p>
+            <p>Parabéns, você encontrou o easter egg do nosso site!</p>
             
             <div class="secret-message">
                 "Nos pequenos detalhes, encontramos a grandiosidade do amor."
             </div>
             
             <p>Obrigado por ser a pessoa mais incrível da minha vida. Não vejo a hora de casar logo com você, ter nossa casinha e nossos filhos.</p>
-            <p>Te amo mais do que todas os astros no espaço e mais do que todas as palavras podem expressar.</p>
-            <p>Agora manda foto da teta por favor 🥺.</p>
+            <p>Te amo mais do que todas as estrelas no espaço e mais do que todas as palavras podem expressar.</p>
             
             <button class="close-btn" id="closePopup">Fechar Mensagem</button>
         </div>
     </div>
-        
-    </style>
-</head>
-<body>
-    <div class="floating-hearts" id="hearts-container"></div>
     
     <div class="container">
         <div class="header">
@@ -461,10 +518,9 @@
         </div>
         
         <div class="spotify-player">
-            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/43BCxznTSBLcXzu4lJ8KW5?autoplay=1utm_source=generator&autoplay=1" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/43BCxznTSBLcXzu4lJ8KW5?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
 
-        
         <div class="together-section">
             <h2 class="section-title">Juntos desde 01 de Outubro de 2023</h2>
             <div class="start-date">Isso da exatamente</div>
@@ -479,7 +535,7 @@
                     <div class="timer-label">Meses</div>
                 </div>
                 <div class="timer-box">
-                    <div class="timer-value" id="days">2</div>
+                    <div class="timer-value" id="days">7</div>
                     <div class="timer-label">Dias</div>
                 </div>
                 <div class="timer-box">
@@ -487,16 +543,16 @@
                     <div class="timer-label">Horas</div>
                 </div>
                 <div class="timer-box">
-                    <div class="timer-value" id="minutes">46</div>
+                    <div class="timer-value" id="minutes">38</div>
                     <div class="timer-label">Minutos</div>
                 </div>
                 <div class="timer-box">
-                    <div class="timer-value" id="seconds">6</div>
+                    <div class="timer-value" id="seconds">13</div>
                     <div class="timer-label">Segundos</div>
                 </div>
             </div>
         </div>
-        <div style="text-align: justify;"
+        
         <div class="love-message"> 
             Para o meu amor, meu sol, minha lua, minhas constelações, meu favinho de mel, meu solzinho pela manhã, meu docinho de coco, meu brigadeiro de panela, minha alma gêmea e futura mãe dos meus filhos. Te amo mais do que tudo neste mundo e quero que saiba que desejo passar o resto dos meus dias com você.
 
@@ -509,84 +565,36 @@ Com muito amor, da sua metade da laranja, dos seus cachinhos favoritos, da sua p
             <h3 class="carousel-title">Nossos Momentos</h3>
             <div class="swiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide" style="background-image: url('1.jpg')">
+                    <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80')">
                         <div class="swiper-slide-content">
                             <div class="swiper-slide-title">1º Encontro (tava nervoso)</div>
                             <div class="swiper-slide-date">03 de Agosto de 2023</div>
                         </div>
                     </div>
-                    <div class="swiper-slide" style="background-image: url('2.webp')">
+                    <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1516487106395-fa9a027f8c6f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')">
                         <div class="swiper-slide-content">
                             <div class="swiper-slide-title">1º Date (ala que gostosa do meu lado)</div>
                             <div class="swiper-slide-date">7 de Setembro de 2023</div>
                         </div>
                     </div>
-                    <div class="swiper-slide" style="background-image: url('3.jpg')">
+                    <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1533143708019-ea3d8bcd6756?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')">
                         <div class="swiper-slide-content">
                             <div class="swiper-slide-title">Pedido de namoro (perdão pelo timming)</div>
                             <div class="swiper-slide-date">01 de Outubro de 2023</div>
                         </div>
- </div>
-                    <div class="swiper-slide" style="background-image: url('4.jpg')">
+                    </div>
+                    <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80')">
                         <div class="swiper-slide-content">
                             <div class="swiper-slide-title">1ª Foto namorando (amo essa cartinha)</div>
                             <div class="swiper-slide-date">14 de Outubro de 2023</div>
                         </div>
- </div>
-                    <div class="swiper-slide" style="background-image: url('5.jpg')">
+                    </div>
+                    <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80')">
                         <div class="swiper-slide-content">
                             <div class="swiper-slide-title">1º Show (alô terno-rei)</div>
                             <div class="swiper-slide-date">10 de Dezembro de 2023</div>
                         </div>
- </div>
-                    <div class="swiper-slide" style="background-image: url('6.jpg')">
-                        <div class="swiper-slide-content">
-                            <div class="swiper-slide-title">1º Ano Novo (de muitos)</div>
-                            <div class="swiper-slide-date">31 de Dezembro de 2023</div>
-                        </div>
- </div>
-                    <div class="swiper-slide" style="background-image: url('7.jpg')">
-                        <div class="swiper-slide-content">
-                            <div class="swiper-slide-title">1º Carnaval (de muitos²)</div>
-                            <div class="swiper-slide-date">08 de Fevereiro de 2024</div>
-                        </div>
- </div>
-                    <div class="swiper-slide" style="background-image: url('8.jpg')">
-                        <div class="swiper-slide-content">
-                            <div class="swiper-slide-title">1ª Noite na rua (vi 2 shows essa noite)</div>
-                            <div class="swiper-slide-date">16 de Maio de 2024</div>
-                        </div>
- </div>
-                    <div class="swiper-slide" style="background-image: url('9.jpg')">
-                        <div class="swiper-slide-content">
-                            <div class="swiper-slide-title">1º Arraiá (de muitos³)</div>
-                            <div class="swiper-slide-date">29 de Junho de 2024</div>
-                        </div>
- </div>
-                    <div class="swiper-slide" style="background-image: url('10.jpg')">
-                        <div class="swiper-slide-content">
-                            <div class="swiper-slide-title">1º Viagem de casal (uma das minhas memórias favoritas)</div>
-                            <div class="swiper-slide-date">29 de Julho de 2024</div>
-                        </div>
                     </div>
-                    <div class="swiper-slide" style="background-image: url('11.jpg')">
-                        <div class="swiper-slide-content">
-                            <div class="swiper-slide-title">1 aninho juntos! (chupa haters)</div>
-                            <div class="swiper-slide-date">01 de Outubro de 2024</div>
-                        </div>
- </div>
-                    <div class="swiper-slide" style="background-image: url('12.jpg')">
-                        <div class="swiper-slide-content">
-                            <div class="swiper-slide-title">Minha foto favorita (sem gracinha nessa)</div>
-                            <div class="swiper-slide-date">23 de Março de 2025</div>
-                        </div>
- </div>
-                    <div class="swiper-slide" style="background-image: url('13.jpg')">
-                        <div class="swiper-slide-content">
-                            <div class="swiper-slide-title">Nossa última foto (spoiler do nosso casamento)</div>
-                            <div class="swiper-slide-date">26 de abril de 2025</div>
-                        </div>
- </div>
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
@@ -595,8 +603,8 @@ Com muito amor, da sua metade da laranja, dos seus cachinhos favoritos, da sua p
         </div>
         
         <div class="footer">
-            Feito com <span class="heart-pulse">🫀</span> por Matheus para Milena | Te amo gostosa! 
- 
+            Feito com <span class="heart-pulse" id="easterTrigger">🫀</span> por Matheus para Milena | Te amo gostosa! 
+        </div>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -665,30 +673,17 @@ Com muito amor, da sua metade da laranja, dos seus cachinhos favoritos, da sua p
         // Criar corações flutuantes
         function createHearts() {
             const heartsContainer = document.getElementById('hearts-container');
-            const heartsContainer2 = document.getElementById('hearts-container-2');
-            const heartCount = 40;
+            const heartCount = 30;
             
             for (let i = 0; i < heartCount; i++) {
-                // Primeira camada de corações
                 const heart = document.createElement('div');
                 heart.className = 'heart-particle';
                 heart.innerHTML = '❤️';
                 heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.animationDuration = (Math.random() * 10 + 8) + 's';
+                heart.style.animationDuration = (Math.random() * 8 + 5) + 's';
                 heart.style.animationDelay = Math.random() * 5 + 's';
-                heart.style.fontSize = (Math.random() * 18 + 13.5) + 'px';
+                heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
                 heartsContainer.appendChild(heart);
-                
-                // Segunda camada de corações (mais sutis)
-                if (i < 30) {
-                    const heart2 = document.createElement('div');
-                    heart2.className = 'heart-particle-2';
-                    heart2.innerHTML = '❤';
-                    heart2.style.left = Math.random() * 100 + 'vw';
-                    heart2.style.animation = `float-2 ${Math.random() * 15 + 10}s infinite linear`;
-                    heart2.style.animationDelay = Math.random() * 8 + 's';
-                    heartsContainer2.appendChild(heart2);
-                }
             }
         }
         
@@ -703,14 +698,12 @@ Com muito amor, da sua metade da laranja, dos seus cachinhos favoritos, da sua p
         // Abrir o popup ao clicar no coração
         easterTrigger.addEventListener('click', () => {
             easterPopup.classList.add('active');
-            // Pausar o carrossel quando o popup estiver aberto
             swiper.autoplay.stop();
         });
         
         // Fechar o popup
         closePopup.addEventListener('click', () => {
             easterPopup.classList.remove('active');
-            // Retomar o carrossel quando o popup for fechado
             swiper.autoplay.start();
         });
         
