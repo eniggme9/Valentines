@@ -739,30 +739,52 @@ Com muito amor, da sua metade da laranja, dos seus cachinhos favoritos, da sua p
         // Inicializar corações
         createHearts();
         
-        // Easter Egg functionality
-        const easterTrigger = document.getElementById('easterTrigger');
-        const easterPopup = document.getElementById('easterPopup');
-        const closePopup = document.getElementById('closePopup');
-        
-        // Abrir o popup ao clicar no coração
-        easterTrigger.addEventListener('click', () => {
-            easterPopup.classList.add('active');
-            swiper.autoplay.stop();
-        });
-        
-        // Fechar o popup
-        closePopup.addEventListener('click', () => {
-            easterPopup.classList.remove('active');
-            swiper.autoplay.start();
-        });
-        
-        // Fechar ao clicar fora do conteúdo
-        easterPopup.addEventListener('click', (e) => {
-            if (e.target === easterPopup) {
-                easterPopup.classList.remove('active');
-                swiper.autoplay.start();
-            }
-        });
+// Easter Egg functionality
+const easterTrigger = document.getElementById('easterTrigger');
+const easterPopup = document.getElementById('easterPopup');
+const closePopup = document.getElementById('closePopup');
+
+// Função para abrir popup
+function openPopup() {
+    easterPopup.classList.add('active');
+    swiper.autoplay.stop();
+}
+
+// Função para fechar popup
+function closePopupFunc() {
+    easterPopup.classList.remove('active');
+    swiper.autoplay.start();
+}
+
+// Abrir o popup ao clicar no coração - click + touchend para mobile
+easterTrigger.addEventListener('click', openPopup);
+easterTrigger.addEventListener('touchend', (e) => {
+    e.preventDefault();  // Evita o disparo duplo com click
+    openPopup();
+});
+
+// Fechar o popup - click + touchend no botão fechar
+closePopup.addEventListener('click', closePopupFunc);
+closePopup.addEventListener('touchend', (e) => {
+    e.preventDefault();
+    closePopupFunc();
+});
+
+// Fechar ao clicar fora do conteúdo (no background do popup)
+easterPopup.addEventListener('click', (e) => {
+    if (e.target === easterPopup) {
+        closePopupFunc();
+    }
+});
+
+// Opcional: fechar popup ao tocar fora no mobile também
+easterPopup.addEventListener('touchend', (e) => {
+    if (e.target === easterPopup) {
+        e.preventDefault();
+        closePopupFunc();
+    }
+});
+
     </script>
 </body>
 </html>
