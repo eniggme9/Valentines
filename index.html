@@ -10,7 +10,8 @@
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+    overflow-x: hidden; 
+  }
             font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
@@ -396,7 +397,13 @@
         .easter-popup.active .easter-content {
             transform: scale(1);
         }
-        
+          .easter.popup {
+    width: 90vw;
+    max-width: 400px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    max-height: 90vh;
+  }
         .easter-content h2 {
             color: #e91e63;
             font-size: 2.5rem;
