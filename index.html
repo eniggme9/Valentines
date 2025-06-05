@@ -10,7 +10,6 @@
         * {
             margin: 0;
             padding: 0;
-    overflow-x: hidden; 
   }
             font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
@@ -115,26 +114,14 @@
             margin: 0 auto;
         }
         
-.timer-box {
-  background: rgba(40, 40, 40, 0.9);
-  padding: 15px;
-  border-radius: 12px;
-  border: 1px solid #555;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s;
-  width: calc(100vw - 40px); /* pega toda a largura da tela, menos 40px */
-  max-width: 400px;
-  box-sizing: border-box;
-  margin: 1rem auto;
-}
-
-/* Garante boa visualização em celulares */
-@media (max-width: 600px) {
-  .timer-box {
-    font-size: 0.95rem;
-    padding: 10px;
-  }
-}
+        .timer-box {
+            background: rgba(40, 40, 40, 0.9);
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid #555;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
         
         .timer-box:hover {
             transform: translateY(-5px);
@@ -397,13 +384,7 @@
         .easter-popup.active .easter-content {
             transform: scale(1);
         }
-          .easter.popup {
-    width: 90vw;
-    max-width: 400px;
-    box-sizing: border-box;
-    overflow-y: auto;
-    max-height: 90vh;
-  }
+        
         .easter-content h2 {
             color: #e91e63;
             font-size: 2.5rem;
